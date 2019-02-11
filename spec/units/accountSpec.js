@@ -15,12 +15,12 @@ describe("Account", () => {
     it("tells you the deposit amount", () => {
       account.deposit(1000);
       account.deposit(500);
-      expect(account.transactions[0]).toBe(1000);
-      expect(account.transactions[1]).toBe(500);
+      expect(account.transactions[0].amount).toBe(1000);
+      expect(account.transactions[1].amount).toBe(500);
     })
 
     xit("tells you the date of the deposit", () => {
-      account.deposit(1000);
+      account.deposit(1000, 14/01/2012);
       expect(account.transactions[0].date).toBe(14/01/2012);
     })
   });
@@ -35,8 +35,8 @@ describe("Account", () => {
     it("tells you the withdraw amount", () => {
       account.withdraw(1000);
       account.withdraw(500);
-      expect(account.transactions[0]).toBe(-1000);
-      expect(account.transactions[1]).toBe(-500);
+      expect(account.transactions[0].amount).toBe(-1000);
+      expect(account.transactions[1].amount).toBe(-500);
     })
   })
 

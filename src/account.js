@@ -5,11 +5,13 @@ class Account {
   }
 
   deposit(amount) {
-    return this.transactions.push(amount);
+    let transaction = new Transaction(amount)
+    return this.transactions.push(transaction);
   }
 
   withdraw(amount) {
-    return this.transactions.push(-amount);
+    let transaction = new Transaction(-amount)
+    return this.transactions.push(transaction);
   }
 
   updateBalance() {

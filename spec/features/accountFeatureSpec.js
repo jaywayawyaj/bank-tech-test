@@ -11,9 +11,9 @@ describe("First specs feature", () => {
   });
 
   xit("A user can interact with their account and print a statement", () => {
-    account.deposit(1000);
-    account.deposit(2000);
     account.withdraw(500);
+    account.deposit(2000);
+    account.deposit(1000);
     expect(account.printStatement()).toEqual(output);
   });
 });
