@@ -4,8 +4,8 @@ class Account {
     this.balance = 0;
   }
 
-  deposit(amount) {
-    let transaction = new Transaction(amount)
+  deposit(amount, date = null) {
+    let transaction = new Transaction(amount, date);
     return this.transactions.push(transaction);
   }
 
