@@ -26,5 +26,12 @@ describe("Account", () => {
       account.withdraw(100);
       expect(account.withdrawals).toBeGreaterThan(0);
     })
+
+    it("tells you the withdraw amount", () => {
+      account.withdraw(1000);
+      account.withdraw(500);
+      expect(account.withdrawals[0]).toBe(1000);
+      expect(account.withdrawals[1]).toBe(500);
+    })
   })
 });
