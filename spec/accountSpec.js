@@ -34,4 +34,13 @@ describe("Account", () => {
       expect(account.withdrawals[1]).toBe(500);
     })
   })
+
+  describe("#updateBalance", () => {
+
+    it("updates the balance of the account", () => {
+      account.deposit(1000);
+      account.withdraw(500);
+      expect(account.updateBalance()).toBe(500)
+    })
+  })
 });
