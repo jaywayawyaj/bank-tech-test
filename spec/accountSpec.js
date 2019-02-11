@@ -19,4 +19,12 @@ describe("Account", () => {
       expect(account.deposits[1]).toBe(500);
     })
   });
+
+  describe ("#withdraw", () => {
+
+    it("a user make add a withdrawal", () => {
+      account.withdraw(100);
+      expect(account.withdrawals).toBeGreaterThan(0);
+    })
+  })
 });
