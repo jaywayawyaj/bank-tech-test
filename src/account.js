@@ -15,8 +15,10 @@ class Account {
   }
 
   updateBalance() {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    this.balance = this.transactions.reduce(reducer);
+    this.transactions.forEach((txn) => {
+      this.balance += txn.amount
+    })
+
     return this.balance;
   }
 
