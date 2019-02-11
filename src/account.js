@@ -1,22 +1,24 @@
 class Account {
   constructor() {
-    this.deposits = [];
-    this.withdrawals = [];
+    this.transactions = [];
+    this.balance = 0;
   }
 
   deposit(amount) {
-    return this.deposits.push(amount);
+    return this.transactions.push(amount);
   }
 
   withdraw(amount) {
-    return this.withdrawals.push(amount);
+    return this.transactions.push(-amount);
   }
 
   updateBalance() {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    let positive = this.deposits.reduce(reducer);
-    let negative = this.withdrawals.reduce(reducer);
-    this.balance = (positive - negative);
+    this.balance = this.transactions.reduce(reducer);
+    return this.balance;
+  }
+
+  printStatement() {
     return this.balance;
   }
 }
