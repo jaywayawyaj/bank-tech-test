@@ -9,8 +9,8 @@ class Account {
     return this.transactions.push(transaction);
   }
 
-  withdraw(amount) {
-    let transaction = new Transaction(-amount)
+  withdraw(amount, date = null) {
+    let transaction = new Transaction(-amount, date)
     return this.transactions.push(transaction);
   }
 
@@ -18,7 +18,6 @@ class Account {
     this.transactions.forEach((txn) => {
       this.balance += txn.amount
     })
-
     return this.balance;
   }
 

@@ -40,6 +40,13 @@ describe("Account", () => {
       expect(account.transactions[0].amount).toBe(-1000);
       expect(account.transactions[1].amount).toBe(-500);
     })
+
+    it("tells you the date of the withdrawal", () => {
+      account.withdraw(1000, ('2012-1-14'));
+      expect(account.transactions[0].date).toEqual(
+        new Date('Sat Jan 14 2012 00:00:00 GMT+0000 (Greenwich Mean Time)')
+      );
+    })
   })
 
   describe("#updateBalance", () => {
