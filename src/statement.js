@@ -20,13 +20,18 @@ class Statement {
         return newAmount;
     }
 
+    editBalance(txn) {
+        let newBalance = Math.abs(txn.accBalance).toFixed(2);
+        return newBalance;
+    }
+
     parseTxnHistory() {
         let history = this.txnHistory.reverse();
         history.forEach((txn) => {
             if (txn.amount < 0) {
-                this.newStatement += `${this.editDate(txn)} || || ${this.editAmount(txn)} || ${Math.abs(txn.accBalance).toFixed(2)}\n`;
+                this.newStatement += `${this.editDate(txn)} || || ${this.editAmount(txn)} || ${this.editBalance(txn)}\n`;
             } else if (txn.amount > 0) {
-                this.newStatement += `${this.editDate(txn)} || ${this.editAmount(txn)} || || ${Math.abs(txn.accBalance).toFixed(2)}\n`;
+                this.newStatement += `${this.editDate(txn)} || ${this.editAmount(txn)} || || ${this.editBalance(txn)}\n`;
             }
         });
     }
