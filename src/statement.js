@@ -14,13 +14,18 @@ class Statement {
     // return (this.header + this.statement)
   }
 
+    editDate(txn) {
+      let newDate = txn.date.toLocaleDateString();
+      return newDate;
+    }
+
   parseTxnHistory() {
     let history = this.txnHistory.reverse();
     history.forEach((txn) => {
       if (txn.amount < 0) {
-        this.newStatement.push(`${txn.date} || || ${Math.abs(txn.amount)} || ${txn.accountBalance}`)
+        this.newStatement.push(`${this.editDate(txn)} || || ${Math.abs(txn.amount)} || ${txn.accountBalance}`)
       } else if (txn.amount > 0) {
-        this.newStatement.push(`${txn.date} || ${txn.amount} || || ${txn.accountBalance}`)
+        this.newStatement.push(`${this.editDate(txn)} || ${txn.amount} || || ${txn.accountBalance}`)
       }
     })
   }
