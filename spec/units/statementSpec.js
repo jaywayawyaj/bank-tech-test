@@ -7,7 +7,7 @@ describe("Statement", () => {
     beforeEach(() => {
         fakeTxn = { amount: 1000, date: "2012-1-14", balance: 1000 };
         fakeTxnTwo = { amount: 500, date: "2012-1-14", balance: 1500 };
-        fakeAccountTxs = [fakeTxn, fakeTxnTwo];
+        fakeAccountTxns = [fakeTxn, fakeTxnTwo];
         statement = new Statement(fakeAccountTxns);
     });
 
