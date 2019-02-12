@@ -54,6 +54,13 @@ describe("Account", () => {
         new Date('Sat Jan 14 2012 00:00:00 GMT+0000 (Greenwich Mean Time)')
       );
     })
+
+    it("updates the transaction accountBalance", () => {
+      account.withdraw(1000);
+      account.withdraw(500);
+      expect(account.transactions[0].accountBalance).toBe(-1000);
+      expect(account.transactions[1].accountBalance).toBe(-1500);
+    })
   })
 
   describe("#updateBalance", () => {

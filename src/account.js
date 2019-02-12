@@ -5,17 +5,19 @@ class Account {
   }
 
   deposit(amount, date = null) {
-    this.updateBalance();
     let transaction = new Transaction(amount, date, (this.balance + amount));
-    return this.transactions.push(transaction);
+    this.transactions.push(transaction);
+    return this.updateBalance();
   }
 
   withdraw(amount, date = null) {
-    let transaction = new Transaction(-amount, date)
-    return this.transactions.push(transaction);
+    let transaction = new Transaction(-amount, date, (this.balance - amount));
+    this.transactions.push(transaction);
+    return this.updateBalance();
   }
 
   updateBalance() {
+    this.balance = 0
     this.transactions.forEach((txn) => {
       this.balance += txn.amount
     })
