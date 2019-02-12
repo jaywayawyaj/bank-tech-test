@@ -24,7 +24,7 @@ class Account {
         return this.balance;
     }
 
-    printStatement() {
-        return this.balance;
+    printStatement(statement = new Statement(this.txns)) {
+        statement.printStatement();
     }
 }
