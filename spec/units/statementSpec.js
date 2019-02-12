@@ -1,17 +1,17 @@
-describe('Statement', () => {
-  let statement;
-  let fakeTransaction;
-  let fakeTransactionTwo;
-  let fakeAccountTransactions;
+describe("Statement", () => {
+    let statement;
+    let fakeTxn;
+    let fakeTxnTwo;
+    let fakeAccountTxns;
 
-  beforeEach(() => {
-    fakeTransaction = { amount: 1000, date: '2012-1-14', balance: 1000 };
-    fakeTransactionTwo = { amount: 500, date: '2012-1-14', balance: 1500 };
-    fakeAccountTransactions = [fakeTransaction, fakeTransactionTwo];
-    statement = new Statement(fakeAccountTransactions);
-  })
+    beforeEach(() => {
+        fakeTxn = { amount: 1000, date: "2012-1-14", balance: 1000 };
+        fakeTxnTwo = { amount: 500, date: "2012-1-14", balance: 1500 };
+        fakeAccountTxs = [fakeTxn, fakeTxnTwo];
+        statement = new Statement(fakeAccountTxns);
+    });
 
-  it('has a transaction history', () => {
-    expect(statement.transactionHistory.length).toBeGreaterThan(0);
-  })
-})
+    it("has a transaction history", () => {
+        expect(statement.txnHistory.length).toBeGreaterThan(0);
+    });
+});
