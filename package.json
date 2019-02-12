@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/jaywayawyaj/bank-tech-test#readme",
   "devDependencies": {
-    "eslint": "^5.13.0"
+    "eslint": "^5.13.0",
+    "karma": "^4.0.0",
+    "karma-coverage": "^1.1.2"
   }
 }

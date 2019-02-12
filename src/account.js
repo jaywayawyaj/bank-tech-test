@@ -13,6 +13,7 @@ class Account {
     withdraw(amount, date = null, txn = Transaction) {
         let newTxn = new txn(-amount, date, (this.balance - amount));
         this.txns.push(newTxn);
+        this.balance += amount;
         return this.updateBalance();
     }
 
@@ -25,7 +26,6 @@ class Account {
     }
 
     printStatement(statement = new Statement(this.txns)) {
-      return statement.printStatement();
-
+        return statement.printStatement();
     }
 }
