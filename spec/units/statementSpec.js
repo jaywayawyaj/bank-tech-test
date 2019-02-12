@@ -43,14 +43,14 @@ describe("Statement", () => {
     });
 
     describe("#editAmount", () => {
-      it("reformats txn.amount", () => {
-        expect(statement.editAmount(fakeTxn)).toBe('1000.00');
-      })
-    })
+        it("reformats txn.amount", () => {
+            expect(statement.editAmount(fakeTxn)).toBe("1000.00");
+        });
+    });
 
     describe("#editBalance", () => {
-      it("reformats txn.accBalance", () => {
-        expect(statement.editBalance(fakeTxn)).toBe('1000.00');
-      })
-    })
+        it("reformats txn.accBalance", () => {
+            expect(statement.editBalance(fakeTxn)).toBe("1000.00");
+        });
+    });
 });

@@ -1,3 +1,5 @@
 node_modules/
 coverage/
 *.json
+my.conf.js
+.eslintrc.js
