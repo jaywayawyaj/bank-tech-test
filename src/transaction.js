@@ -1,7 +1,7 @@
 class Transaction {
-    constructor(amount, date = null, accountBalance) {
+    constructor(amount, date = null, accBalance) {
         this.amount = amount;
         this.date = date ? new Date(date) : new Date();
-        this.accountBalance = accountBalance;
+        this.accBalance = accBalance;
     }
 }

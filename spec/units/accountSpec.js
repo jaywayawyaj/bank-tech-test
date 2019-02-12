@@ -33,8 +33,8 @@ describe("Account", () => {
     it("updates the transaction accountBalance", () => {
       account.deposit(fakeTxn.amount);
       account.deposit(fakeTxnTwo.amount);
-      expect(account.txns[0].accountBalance).toBe(1000);
-      expect(account.txns[1].accountBalance).toBe(1500);
+      expect(account.txns[0].accBalance).toBe(1000);
+      expect(account.txns[1].accBalance).toBe(1500);
     })
   });
 
@@ -62,8 +62,8 @@ describe("Account", () => {
     it("updates the transaction accountBalance", () => {
       account.withdraw(fakeTxn.amount);
       account.withdraw(fakeTxnTwo.amount);
-      expect(account.txns[0].accountBalance).toBe(-1000);
-      expect(account.txns[1].accountBalance).toBe(-1500);
+      expect(account.txns[0].accBalance).toBe(-1000);
+      expect(account.txns[1].accBalance).toBe(-1500);
     })
   })
 

@@ -16,6 +16,6 @@ describe("Transaction", () => {
     });
 
     it("returns account balance at time of transaction", () => {
-        expect(txn.accountBalance).toEqual(10);
+        expect(txn.accBalance).toEqual(10);
     });
 });

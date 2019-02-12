@@ -1,31 +1,27 @@
 class Statement {
   constructor(history) {
     this.txnHistory = history;
-    this.header = "date || credit || debit || balance"
-    this.newStatement = []
+    this.newStatement = "";
   }
 
   printStatement() {
-    console.log(this.header)
+    this.newStatement += "date || credit || debit || balance\n";
     this.parseTxnHistory();
-    // this.statement.forEach((txn) => {
-    //   console.log(txn)
-    // })
-    // return (this.header + this.statement)
+    return (this.newStatement)
   }
 
-    editDate(txn) {
-      let newDate = txn.date.toLocaleDateString();
-      return newDate;
-    }
+  editDate(txn) {
+    let newDate = txn.date.toLocaleDateString();
+    return newDate;
+  }
 
   parseTxnHistory() {
     let history = this.txnHistory.reverse();
     history.forEach((txn) => {
       if (txn.amount < 0) {
-        this.newStatement.push(`${this.editDate(txn)} || || ${Math.abs(txn.amount)} || ${txn.accountBalance}`)
+        this.newStatement += `${this.editDate(txn)} || || ${Math.abs(txn.amount).toFixed(2)} || ${Math.abs(txn.accBalance).toFixed(2)}\n`
       } else if (txn.amount > 0) {
-        this.newStatement.push(`${this.editDate(txn)} || ${txn.amount} || || ${txn.accountBalance}`)
+        this.newStatement += `${this.editDate(txn)} || ${Math.abs(txn.amount).toFixed(2)} || || ${Math.abs(txn.accBalance).toFixed(2)}\n`
       }
     })
   }

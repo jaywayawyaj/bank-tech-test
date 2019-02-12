@@ -1,7 +1,7 @@
 class Account {
     constructor() {
         this.txns = [];
-        this.balance = 0;
+        this.balance = 0.00;
     }
 
     deposit(amount, date = null, txn = Transaction) {
@@ -17,7 +17,7 @@ class Account {
     }
 
     updateBalance() {
-        this.balance = 0;
+        this.balance = 0.00;
         this.txns.forEach((txn) => {
             this.balance += txn.amount;
         });
@@ -25,6 +25,7 @@ class Account {
     }
 
     printStatement(statement = new Statement(this.txns)) {
-        statement.printStatement();
+      return statement.printStatement();
+
     }
 }
