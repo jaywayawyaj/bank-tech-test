@@ -5,8 +5,8 @@ describe("Account", () => {
 
   beforeEach(() => {
     account = new Account();
-    fakeTransaction = { amount: 1000, date: '2012-1-14'};
-    fakeTransactionTwo = { amount: 500, date: '2012-1-14'};
+    fakeTransaction = { amount: 1000, date: '2012-1-14' };
+    fakeTransactionTwo = { amount: 500, date: '2012-1-14' };
   });
 
   describe("#deposit/deposits", () => {

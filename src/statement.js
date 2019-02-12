@@ -1,5 +1,5 @@
 class Statement {
-  constructor() {
-
+  constructor(history) {
+    this.transactionHistory = history;
   }
 }
