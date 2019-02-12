@@ -7,6 +7,7 @@ class Statement {
     printStatement() {
         this.newStatement += "date || credit || debit || balance\n";
         this.parseTxnHistory();
+        console.log(this.newStatement);
         return (this.newStatement);
     }
 
