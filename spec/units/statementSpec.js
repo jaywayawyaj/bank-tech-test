@@ -13,5 +13,12 @@ describe("Statement", () => {
         expect(statement.txnHistory.length).toBe(3);
     });
 
+    describe('#parseTxnHistory', () => {
+      it('adds transactions to the newStatement array', () => {
+        statement.parseTxnHistory();
+        expect(statement.newStatement.length).toEqual(3);
+      })
+    })
+
 
 });
