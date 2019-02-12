@@ -46,13 +46,13 @@ This should open a browser, from which you should access the console and use the
 ```
 >let account = new Account()
 > account
-Account {txns: Array(0), balance: 0}
+Account {transactions: Array(0), balance: 0}
 > account.deposit(100)
 100
 > account.withdraw(50)
 50
 > account
-Account {txns: Array(2), balance: 50}
+Account {transactions: Array(2), balance: 50}
 > account.printStatement()
 "date || credit || debit || balance
 12/02/2019 || || 50.00 || 50.00

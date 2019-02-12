@@ -1,38 +1,38 @@
 class Statement {
     constructor(history) {
-        this.txnHistory = history;
+        this.transactionHistory = history;
         this.newStatement = "";
     }
 
     printStatement() {
         this.newStatement += "date || credit || debit || balance\n";
-        this.parseTxnHistory();
+        this.parseTransactionHistory();
         console.log(this.newStatement);
         return (this.newStatement);
     }
 
-    editDate(txn) {
-        let newDate = txn.date.toLocaleDateString();
+    editDate(transaction) {
+        let newDate = transaction.date.toLocaleDateString();
         return newDate;
     }
 
-    editAmount(txn) {
-        let newAmount = Math.abs(txn.amount).toFixed(2);
+    editAmount(transaction) {
+        let newAmount = Math.abs(transaction.amount).toFixed(2);
         return newAmount;
     }
 
-    editBalance(txn) {
-        let newBalance = Math.abs(txn.accBalance).toFixed(2);
+    editBalance(transaction) {
+        let newBalance = Math.abs(transaction.accBalance).toFixed(2);
         return newBalance;
     }
 
-    parseTxnHistory() {
-        let history = this.txnHistory.reverse();
-        history.forEach((txn) => {
-            if (txn.amount < 0) {
-                this.newStatement += `${this.editDate(txn)} || || ${this.editAmount(txn)} || ${this.editBalance(txn)}\n`;
-            } else if (txn.amount > 0) {
-                this.newStatement += `${this.editDate(txn)} || ${this.editAmount(txn)} || || ${this.editBalance(txn)}\n`;
+    parseTransactionHistory() {
+        let history = this.transactionHistory.reverse();
+        history.forEach((transaction) => {
+            if (transaction.amount < 0) {
+                this.newStatement += `${this.editDate(transaction)} || || ${this.editAmount(transaction)} || ${this.editBalance(transaction)}\n`;
+            } else if (transaction.amount > 0) {
+                this.newStatement += `${this.editDate(transaction)} || ${this.editAmount(transaction)} || || ${this.editBalance(transaction)}\n`;
             }
         });
     }

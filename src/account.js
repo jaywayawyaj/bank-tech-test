@@ -1,31 +1,31 @@
 class Account {
     constructor() {
-        this.txns = [];
+        this.transactions = [];
         this.balance = 0.00;
     }
 
-    deposit(amount, date = null, txn = Transaction) {
-        let newTxn = new txn(amount, date, (this.balance + amount));
-        this.txns.push(newTxn);
+    deposit(amount, date = null, transaction = Transaction) {
+        let newTransaction = new transaction(amount, date, (this.balance + amount));
+        this.transactions.push(newTransaction);
         return this.updateBalance();
     }
 
-    withdraw(amount, date = null, txn = Transaction) {
-        let newTxn = new txn(-amount, date, (this.balance - amount));
-        this.txns.push(newTxn);
+    withdraw(amount, date = null, transaction = Transaction) {
+        let newTransaction = new transaction(-amount, date, (this.balance - amount));
+        this.transactions.push(newTransaction);
         this.balance += amount;
         return this.updateBalance();
     }
 
     updateBalance() {
         this.balance = 0.00;
-        this.txns.forEach((txn) => {
-            this.balance += txn.amount;
+        this.transactions.forEach((transaction) => {
+            this.balance += transaction.amount;
         });
         return this.balance;
     }
 
-    printStatement(statement = new Statement(this.txns)) {
+    printStatement(statement = new Statement(this.transactions)) {
         return statement.printStatement();
     }
 }
