@@ -5,14 +5,14 @@ describe("Account", () => {
     account = new Account();
   });
 
-  describe("#deposit", () => {
+  describe("#deposit/deposits", () => {
 
     it("a user can add a deposit", () => {
       account.deposit(1000);
       expect(account.transactions.length).toBeGreaterThan(0);
     })
 
-    it("tells you the deposit amount", () => {
+    it("tells you the deposited amount", () => {
       account.deposit(1000);
       account.deposit(500);
       expect(account.transactions[0].amount).toBe(1000);
@@ -25,9 +25,16 @@ describe("Account", () => {
         new Date('Sat Jan 14 2012 00:00:00 GMT+0000 (Greenwich Mean Time)')
       );
     })
+
+    it("updates the transaction accountBalance", () => {
+      account.deposit(1000);
+      account.deposit(500);
+      expect(account.transactions[0].accountBalance).toBe(1000);
+      expect(account.transactions[1].accountBalance).toBe(1500);
+    })
   });
 
-  describe ("#withdraw", () => {
+  describe ("#withdraw/withdrawals", () => {
 
     it("a user make add a withdrawal", () => {
       account.withdraw(100);

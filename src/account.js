@@ -5,7 +5,8 @@ class Account {
   }
 
   deposit(amount, date = null) {
-    let transaction = new Transaction(amount, date);
+    this.updateBalance();
+    let transaction = new Transaction(amount, date, (this.balance + amount));
     return this.transactions.push(transaction);
   }
 
