@@ -63,8 +63,6 @@ describe("Account", () => {
             account.withdraw(fakeTxn.amount);
             account.withdraw(fakeTxnTwo.amount);
             expect(account.txns[0].accBalance).toBe(-1000);
-            console.log(account.txns[0]);
-            console.log(account.txns[1]);
             expect(account.txns[1].accBalance).toBe(-1500);
         });
     });
