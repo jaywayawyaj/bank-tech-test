@@ -7,7 +7,7 @@ class FormatStatement {
       this.printStatement.addHeader();
         let history = transactionHistory.reverse();
         history.forEach((t) => {
-            t < 0 ? this.formatDebitString(t) : this.formatCreditString(t)
+            t.amount < 0 ? this.formatDebitString(t) : this.formatCreditString(t)
         });
       return this.printStatement.newStatement;
     }
@@ -28,16 +28,17 @@ class FormatStatement {
     }
 
     formatCreditString(t) {
-      this.printStatement.addCreditTransaction(
-        `${this.formatDate(t)} || ${this.formatAmount(t)} ||`
-        + ` || ${this.formatBalance(t)}\n`
-        );
+      let creditString = (`${this.formatDate(t)} || ${this.formatAmount(t)} ||`
+                          + ` || ${this.formatBalance(t)}\n`
+                        )
+      this.printStatement.addCreditTransaction(creditString);
+      return creditString
     }
 
     formatDebitString(t) {
-      this.printStatement.addDebitTransaction(
-        `${this.formatDate(t)} || || ${this.formatAmount(t)}`
-        + `|| ${this.formatBalance(t)}\n`
-      );
+      let debitString = (`${this.formatDate(t)} || || ${this.formatAmount(t)}`
+      + ` || ${this.formatBalance(t)}\n`)
+      this.printStatement.addDebitTransaction(debitString);
+      return debitString
     }
 }
