@@ -53,4 +53,18 @@ describe("Statement", () => {
             expect(statement.editBalance(fakeTransaction)).toBe("1000.00");
         });
     });
+
+    describe("#addDebitTransaction", () => {
+      it("adds a debit string to the newStatement string", () => {
+        statement.addDebitTransaction(fakeTransaction);
+        expect(statement.newStatement).toContain("1000.00")
+      })
+    })
+
+    describe("#addCreditTransaction", () => {
+      it("adds a credit string to the newStatement string", () => {
+        statement.addCreditTransaction(fakeTransaction);
+        expect(statement.newStatement).toContain("1000.00")
+      })
+    })
 });

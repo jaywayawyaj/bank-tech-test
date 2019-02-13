@@ -28,12 +28,22 @@ class Statement {
 
     parseTransactionHistory() {
         let history = this.transactionHistory.reverse();
-        history.forEach((transaction) => {
-            if (transaction.amount < 0) {
-                this.newStatement += `${this.editDate(transaction)} || || ${this.editAmount(transaction)} || ${this.editBalance(transaction)}\n`;
-            } else if (transaction.amount > 0) {
-                this.newStatement += `${this.editDate(transaction)} || ${this.editAmount(transaction)} || || ${this.editBalance(transaction)}\n`;
-            }
+        history.forEach((t) => {
+            t < 0 ? this.addDebitTransaction(t) : this.addCreditTransaction(t)
         });
+    }
+
+    addCreditTransaction(t) {
+        this.newStatement += (
+          `${this.editDate(t)} || ${this.editAmount(t)} ||`
+          + ` || ${this.editBalance(t)}\n`
+          );
+    }
+
+    addDebitTransaction(t) {
+        this.newStatement += (
+          `${this.editDate(t)} || || ${this.editAmount(t)}`
+          + `|| ${this.editBalance(t)}\n`
+        );
     }
 }
