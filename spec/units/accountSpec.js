@@ -26,7 +26,9 @@ describe("Account", () => {
         it("tells you the date of the deposit", () => {
             account.deposit(fakeTransaction.amount, fakeTransaction.date);
             expect(account.transactions[0].date).toEqual(
-                new Date("Sat Jan 14 2012 00:00:00 GMT+0000 (Greenwich Mean Time)")
+                new Date(
+                  "Sat Jan 14 2012 00:00:00 GMT+0000 (Greenwich Mean Time)"
+                )
             );
         });
 
@@ -55,7 +57,9 @@ describe("Account", () => {
         it("tells you the date of the withdrawal", () => {
             account.withdraw(fakeTransaction.amount, fakeTransaction.date);
             expect(account.transactions[0].date).toEqual(
-                new Date("Sat Jan 14 2012 00:00:00 GMT+0000 (Greenwich Mean Time)")
+                new Date(
+                  "Sat Jan 14 2012 00:00:00 GMT+0000 (Greenwich Mean Time)"
+                )
             );
         });
 
