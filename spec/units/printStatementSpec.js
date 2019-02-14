@@ -10,7 +10,7 @@ describe("PrintStatement", () => {
     });
 
     describe("#addHeader", () => {
-        it("adds a header to the final statement", () => {
+        xit("adds a header to the final statement", () => {
             printStatement.addHeader();
             expect(printStatement.newStatement).toContain(
                 "date || credit || debit || balance"
@@ -34,7 +34,7 @@ describe("PrintStatement", () => {
 
     describe("#printStatement", () => {
         it("returns a final statement with header", () => {
-            printStatement.addHeader();
+            // printStatement.addHeader();
             printStatement.addCreditTransaction(output[1]);
             printStatement.addDebitTransaction(output[3]);
             expect(printStatement.printStatement()).toContain(output[0]);

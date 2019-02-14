@@ -4,10 +4,10 @@ class FormatStatement {
     }
 
     parseTransactionHistory(transactionHistory) {
-        this.printStatement.addHeader();
         let history = transactionHistory.reverse();
-        history.forEach((t) => {
-            t.amount < 0 ? this.formatDebitString(t) : this.formatCreditString(t);
+        history.forEach((transaction) => {
+            transaction.amount < 0 ? this.formatDebitString(transaction) :
+             this.formatCreditString(transaction);
         });
         return this.printStatement.newStatement;
     }
