@@ -27,19 +27,20 @@ class FormatStatement {
         return newBalance;
     }
 
-    formatCreditString(t) {
+    formatCreditString(transaction) {
         let creditString = (
-            `${this.formatDate(t)} || ${this.formatAmount(t)} ||`
-        + ` || ${this.formatBalance(t)}\n`
+            `${this.formatDate(transaction)} ||` +
+            ` ${this.formatAmount(transaction)} ||` +
+            ` || ${this.formatBalance(transaction)}\n`
         );
         this.printStatement.addCreditTransaction(creditString);
         return creditString;
     }
 
-    formatDebitString(t) {
+    formatDebitString(transaction) {
         let debitString = (
-            `${this.formatDate(t)} || || ${this.formatAmount(t)}`
-        + ` || ${this.formatBalance(t)}\n`
+            `${this.formatDate(transaction)} || || ${this.formatAmount(transaction)}`
+        + ` || ${this.formatBalance(transaction)}\n`
         );
         this.printStatement.addDebitTransaction(debitString);
         return debitString;
