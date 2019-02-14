@@ -29,6 +29,6 @@ class Account {
     }
 
     printStatement(statement = new FormatStatement()) {
-        return statement.parseTransactionHistory(this.transactions);
+        statement.parseTransactionHistory(this.transactions);
     }
 }

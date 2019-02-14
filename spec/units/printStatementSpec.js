@@ -9,15 +9,6 @@ describe("PrintStatement", () => {
         printStatement = new PrintStatement;
     });
 
-    describe("#addHeader", () => {
-        xit("adds a header to the final statement", () => {
-            printStatement.addHeader();
-            expect(printStatement.newStatement).toContain(
-                "date || credit || debit || balance"
-            );
-        });
-    });
-
     describe("#addCreditTransaction", () => {
         it("adds credit string to the final statement", () => {
             printStatement.addCreditTransaction(output[2]);

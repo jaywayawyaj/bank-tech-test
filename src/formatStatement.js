@@ -9,7 +9,6 @@ class FormatStatement {
             transaction.amount < 0 ? this.formatDebitString(transaction) :
              this.formatCreditString(transaction);
         });
-        return this.printStatement.newStatement;
     }
 
     formatDate(transaction) {
@@ -39,8 +38,9 @@ class FormatStatement {
 
     formatDebitString(transaction) {
         let debitString = (
-            `${this.formatDate(transaction)} || || ${this.formatAmount(transaction)}`
-        + ` || ${this.formatBalance(transaction)}\n`
+            `${this.formatDate(transaction)} || ` +
+            `|| ${this.formatAmount(transaction)}` +
+            ` || ${this.formatBalance(transaction)}\n`
         );
         this.printStatement.addDebitTransaction(debitString);
         return debitString;

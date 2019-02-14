@@ -27,10 +27,12 @@ describe("FormatStatement", () => {
     describe("#parseTransactionHistory", () => {
         it("adds transactions to the newStatement string", () => {
             formatStatement.parseTransactionHistory(fakeAccTransactions);
-            expect(printStatement.newStatement).toContain(output[0]);
-            expect(printStatement.newStatement).toContain(output[1]);
-            expect(printStatement.newStatement).toContain(output[2]);
-            expect(printStatement.newStatement).toContain(output[3]);
+            expect(
+                formatStatement.formatCreditString(fakeTransaction)
+            ).toContain(output[1]);
+            expect(
+                formatStatement.formatDebitString(fakeTransactionThree)
+            ).toContain(output[3]);
         });
     });
 
