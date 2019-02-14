@@ -1,15 +1,15 @@
 class FormatStatement {
     constructor(printStatement = new PrintStatement) {
-      this.printStatement = printStatement;
+        this.printStatement = printStatement;
     }
 
     parseTransactionHistory(transactionHistory) {
-      this.printStatement.addHeader();
+        this.printStatement.addHeader();
         let history = transactionHistory.reverse();
         history.forEach((t) => {
-            t.amount < 0 ? this.formatDebitString(t) : this.formatCreditString(t)
+            t.amount < 0 ? this.formatDebitString(t) : this.formatCreditString(t);
         });
-      return this.printStatement.newStatement;
+        return this.printStatement.newStatement;
     }
 
     formatDate(transaction) {
@@ -28,17 +28,20 @@ class FormatStatement {
     }
 
     formatCreditString(t) {
-      let creditString = (`${this.formatDate(t)} || ${this.formatAmount(t)} ||`
-                          + ` || ${this.formatBalance(t)}\n`
-                        )
-      this.printStatement.addCreditTransaction(creditString);
-      return creditString
+        let creditString = (
+            `${this.formatDate(t)} || ${this.formatAmount(t)} ||`
+        + ` || ${this.formatBalance(t)}\n`
+        );
+        this.printStatement.addCreditTransaction(creditString);
+        return creditString;
     }
 
     formatDebitString(t) {
-      let debitString = (`${this.formatDate(t)} || || ${this.formatAmount(t)}`
-      + ` || ${this.formatBalance(t)}\n`)
-      this.printStatement.addDebitTransaction(debitString);
-      return debitString
+        let debitString = (
+            `${this.formatDate(t)} || || ${this.formatAmount(t)}`
+        + ` || ${this.formatBalance(t)}\n`
+        );
+        this.printStatement.addDebitTransaction(debitString);
+        return debitString;
     }
 }

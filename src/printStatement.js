@@ -9,7 +9,7 @@ class PrintStatement {
     }
 
     addHeader() {
-      this.newStatement += "date || credit || debit || balance\n";
+        this.newStatement += "date || credit || debit || balance\n";
     }
 
     addCreditTransaction(string) {

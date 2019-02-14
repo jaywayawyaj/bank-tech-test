@@ -1,12 +1,11 @@
 class Account {
     constructor() {
         this.transactions = [];
-        this.balance = 0.00;
     }
 
     deposit(amount, date = null, transaction = Transaction) {
         let newTransaction = new transaction(
-          amount, date, (this.balance + amount)
+            amount, date, (this.updateBalance() + amount)
         );
         this.transactions.push(newTransaction);
         return this.updateBalance();
@@ -14,7 +13,7 @@ class Account {
 
     withdraw(amount, date = null, transaction = Transaction) {
         let newTransaction = new transaction(
-          -amount, date, (this.balance - amount)
+            -amount, date, (this.updateBalance() - amount)
         );
         this.transactions.push(newTransaction);
         this.balance += amount;
