@@ -9,6 +9,7 @@ class FormatStatement {
             transaction.amount < 0 ? this.formatDebitString(transaction) :
              this.formatCreditString(transaction);
         });
+        this.printStatement.printStatement();
     }
 
     formatDate(transaction) {

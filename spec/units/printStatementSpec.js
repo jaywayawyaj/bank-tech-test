@@ -25,12 +25,13 @@ describe("PrintStatement", () => {
 
     describe("#printStatement", () => {
         it("returns a final statement with header", () => {
-            // printStatement.addHeader();
             printStatement.addCreditTransaction(output[1]);
             printStatement.addDebitTransaction(output[3]);
-            expect(printStatement.printStatement()).toContain(output[0]);
-            expect(printStatement.printStatement()).toContain(output[1]);
-            expect(printStatement.printStatement()).toContain(output[3]);
+            printStatement.printStatement();
+            let finalStatement = printStatement.newStatement;
+            expect(finalStatement).toContain(output[0]);
+            expect(finalStatement).toContain(output[1]);
+            expect(finalStatement).toContain(output[3]);
         });
     });
 });

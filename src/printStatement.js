@@ -4,8 +4,7 @@ class PrintStatement {
     }
 
     printStatement() {
-        console.log(this.newStatement);
-        return (this.newStatement);
+        return console.log(this.newStatement);
     }
 
     addCreditTransaction(string) {
