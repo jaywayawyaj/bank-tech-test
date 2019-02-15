@@ -71,12 +71,12 @@ describe("Account", () => {
         });
     });
 
-    describe("#updateBalance", () => {
+    describe("#calculateBalance", () => {
 
-        it("updates the balance of the account", () => {
+        it("tells you the balance", () => {
             account.deposit(fakeTransaction.amount);
             account.withdraw(fakeTransactionTwo.amount);
-            expect(account.updateBalance()).toBe(500);
+            expect(account.calculateBalance()).toBe(500);
         });
     });
 });
