@@ -30,7 +30,7 @@ describe("First specs feature", () => {
         account.deposit(2000, "2012-01-13");
         account.withdraw(500, "2012-01-14");
         account.printStatement();
-        let finalStatement = account.statement.printStatement.newStatement;
+        let finalStatement = account.printStatement();
         expect(finalStatement).toContain(output[0]);
         expect(finalStatement).toContain(output[1]);
         expect(finalStatement).toContain(output[2]);

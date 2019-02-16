@@ -23,7 +23,7 @@ class Account {
     calculateBalance() {
         let balance = 0.00;
         this.transactions.forEach((transaction) => {
-            this.balance += transaction.amount;
+            balance += transaction.amount;
         });
         return balance;
     }
