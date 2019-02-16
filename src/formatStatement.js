@@ -1,6 +1,10 @@
 class FormatStatement {
-    constructor(printStatement = new PrintStatement) {
+    constructor(
+      printStatement = new PrintStatement,
+      attributes = new FormatAttributes
+    ) {
         this.printStatement = printStatement;
+        this.attributes = attributes;
     }
 
     parseTransactionHistory(transactionHistory) {
@@ -12,26 +16,11 @@ class FormatStatement {
         this.printStatement.printStatement();
     }
 
-    formatDate(transaction) {
-        let newDate = transaction.date.toLocaleDateString();
-        return newDate;
-    }
-
-    formatAmount(transaction) {
-        let newAmount = Math.abs(transaction.amount).toFixed(2);
-        return newAmount;
-    }
-
-    formatBalance(transaction) {
-        let newBalance = Math.abs(transaction.accBalance).toFixed(2);
-        return newBalance;
-    }
-
     formatCreditString(transaction) {
         let creditString = (
-            `${this.formatDate(transaction)} ||` +
-            ` ${this.formatAmount(transaction)} ||` +
-            ` || ${this.formatBalance(transaction)}\n`
+            `${this.attributes.formatDate(transaction)} ||` +
+            ` ${this.attributes.formatAmount(transaction)} ||` +
+            ` || ${this.attributes.formatBalance(transaction)}\n`
         );
         this.printStatement.addCreditTransaction(creditString);
         return creditString;
@@ -39,9 +28,9 @@ class FormatStatement {
 
     formatDebitString(transaction) {
         let debitString = (
-            `${this.formatDate(transaction)} || ` +
-            `|| ${this.formatAmount(transaction)}` +
-            ` || ${this.formatBalance(transaction)}\n`
+            `${this.attributes.formatDate(transaction)} || ` +
+            `|| ${this.attributes.formatAmount(transaction)}` +
+            ` || ${this.attributes.formatBalance(transaction)}\n`
         );
         this.printStatement.addDebitTransaction(debitString);
         return debitString;
