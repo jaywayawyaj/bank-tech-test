@@ -1,7 +1,6 @@
 class Account {
-    constructor(statement = new FormatStatement()) {
+    constructor() {
         this.transactions = [];
-        this.statement = statement;
     }
 
     deposit(amount, date = null, transaction = Transaction) {
@@ -22,14 +21,14 @@ class Account {
     }
 
     calculateBalance() {
-        this.balance = 0.00;
+        let balance = 0.00;
         this.transactions.forEach((transaction) => {
             this.balance += transaction.amount;
         });
-        return this.balance;
+        return balance;
     }
 
-    printStatement() {
-        this.statement.parseTransactionHistory(this.transactions);
+    printStatement(statement = new FormatStatement()) {
+        statement.parseTransactionHistory(this.transactions);
     }
 }
