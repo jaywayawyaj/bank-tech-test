@@ -1,9 +1,9 @@
 class FormatStatement {
     constructor(
-      printStatement = new PrintStatement,
+      display = new DisplayStatement,
       attributes = new FormatAttributes
     ) {
-        this.printStatement = printStatement;
+        this.display = display;
         this.attributes = attributes;
     }
 
@@ -13,7 +13,7 @@ class FormatStatement {
             transaction.amount < 0 ? this.formatDebitString(transaction) :
              this.formatCreditString(transaction);
         });
-        this.printStatement.printStatement();
+        return this.display.printStatement();
     }
 
     formatCreditString(transaction) {
@@ -22,7 +22,7 @@ class FormatStatement {
             ` ${this.attributes.formatAmount(transaction)} ||` +
             ` || ${this.attributes.formatBalance(transaction)}\n`
         );
-        this.printStatement.addCreditTransaction(creditString);
+        this.display.addCreditTransaction(creditString);
         return creditString;
     }
 
@@ -32,7 +32,7 @@ class FormatStatement {
             `|| ${this.attributes.formatAmount(transaction)}` +
             ` || ${this.attributes.formatBalance(transaction)}\n`
         );
-        this.printStatement.addDebitTransaction(debitString);
+        this.display.addDebitTransaction(debitString);
         return debitString;
     }
 }

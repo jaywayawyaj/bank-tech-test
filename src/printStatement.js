@@ -1,10 +1,10 @@
-class PrintStatement {
+class DisplayStatement {
     constructor() {
         this.newStatement = "date || credit || debit || balance\n";
     }
 
     printStatement() {
-        return console.log(this.newStatement);
+        return this.newStatement;
     }
 
     addCreditTransaction(string) {

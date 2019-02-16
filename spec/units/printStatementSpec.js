@@ -1,4 +1,4 @@
-describe("PrintStatement", () => {
+describe("DisplayStatement", () => {
     let printStatement;
     let output = ("date || credit || debit || balance",
     "01/06/2000 || 1000.00 || || 1000.00",
@@ -6,7 +6,7 @@ describe("PrintStatement", () => {
     "01/06/2000 || || 250.00 || 1250.00");
 
     beforeEach(() => {
-        printStatement = new PrintStatement;
+        printStatement = new DisplayStatement;
     });
 
     describe("#addCreditTransaction", () => {

@@ -28,6 +28,6 @@ class Account {
     }
 
     printStatement(statement = new FormatStatement()) {
-        statement.parseTransactionHistory(this.transactions);
+        return statement.parseTransactionHistory(this.transactions);
     }
 }
