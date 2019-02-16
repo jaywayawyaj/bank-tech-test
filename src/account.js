@@ -16,7 +16,6 @@ class Account {
             -amount, date, (this.calculateBalance() - amount)
         );
         this.transactions.push(newTransaction);
-        this.balance += amount;
         return this.calculateBalance();
     }
 
