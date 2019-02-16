@@ -4,13 +4,13 @@ describe("FormatStatement", () => {
         amount: 1000, date: new Date("2000-6-1"), accBalance: 1000
     };
 
-    beforeEach() {
+    beforeEach(() => {
       formatAttributes = new FormatAttributes;
-    }
+    });
 
     describe("#formatDate", () => {
         it("reformats date object to DD/MM/YYYY", () => {
-            expect(formatStatement.formatDate(fakeTransaction)).toEqual(
+            expect(formatAttributes.formatDate(fakeTransaction)).toEqual(
                 "01/06/2000"
             );
         });
@@ -18,7 +18,7 @@ describe("FormatStatement", () => {
 
     describe("#formatAmount", () => {
         it("reformats transaction.amount", () => {
-            expect(formatStatement.formatAmount(fakeTransaction)).toBe(
+            expect(formatAttributes.formatAmount(fakeTransaction)).toBe(
                 "1000.00"
             );
         });
@@ -26,10 +26,9 @@ describe("FormatStatement", () => {
 
     describe("#formatBalance", () => {
         it("reformats transaction.accBalance", () => {
-            expect(formatStatement.formatBalance(fakeTransaction)).toBe(
+            expect(formatAttributes.formatBalance(fakeTransaction)).toBe(
                 "1000.00"
             );
         });
     });
-
-  })
+})
