@@ -3,3 +3,4 @@ coverage/
 *.json
 my.conf.js
 .eslintrc.js
+lib/
