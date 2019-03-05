@@ -1,4 +1,6 @@
-[![BCH compliance](https://bettercodehub.com/edge/badge/jaywayawyaj/bank-tech-test?branch=master)](https://bettercodehub.com/)
+[![BCH compliance](
+  https://bettercodehub.com/edge/badge/jaywayawyaj/bank-tech-test?branch=master
+  )](https://bettercodehub.com/)
 
 # Makers Academy Tech Test Week - Bank Test
 
