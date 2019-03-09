@@ -1,6 +1,6 @@
 [![BCH compliance](
   https://bettercodehub.com/edge/badge/jaywayawyaj/bank-tech-test?branch=master
-  )](https://bettercodehub.com/)
+  )](https://bettercodehub.com/) [![Maintainability](https://api.codeclimate.com/v1/badges/5605e1e56679e947621d/maintainability)](https://codeclimate.com/github/jaywayawyaj/bank-tech-test/maintainability)
 
 # Makers Academy Tech Test Week - Bank Test
 
